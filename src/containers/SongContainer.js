@@ -1,6 +1,6 @@
 import React from 'react';
 import SongSelector from '../components/SongSelector';
-// import SongDetail from '../components/SongDetail';
+import SongDetail from '../components/SongDetail';
 
 class SongContainer extends React.Component {
   constructor(props){
@@ -8,7 +8,8 @@ class SongContainer extends React.Component {
     this.state = {
       songs: [],
       currentSong: null
-    }
+    };
+    this.handleSongSelected = this.handleSongSelected.bind(this);
   }
 
   componentDidMount() {
@@ -27,11 +28,18 @@ class SongContainer extends React.Component {
     request.send();
   }
 
+  handleSongSelected(index) {
+    const selectedSong = this.state.songs[index];
+    this.setState({currentSong: selectedSong})
+  }
+
   render(){
     return (
       <div>
         <h2>Top 20 Songs</h2>
-        <SongSelector songs={this.state.songs}/>
+        <SongSelector songs={this.state.songs}
+        onSongSelected={this.handleSongSelected}/>
+        <SongDetail song={this.state.currentSong}/>
       </div>
     );
   }
