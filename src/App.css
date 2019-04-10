@@ -1,9 +1,6 @@
 body {
   background-color: black;
   color: white;
-}
-
-div {
   text-align: center;
 }
 
@@ -21,6 +18,19 @@ option[:hover] {
   color: red;
 }
 
-img {
-  padding-right: 5px;
+#song-detail {
+  display: flex;
+  border: 1px solid grey;
+  margin: 10px 57px;
+}
+
+div.left {
+  display: inherit;
+}
+
+div.right {
+  display: inherit;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding-left: 10px;
 }

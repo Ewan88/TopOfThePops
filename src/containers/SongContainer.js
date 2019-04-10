@@ -21,7 +21,6 @@ class SongContainer extends React.Component {
       if (request.status !== 200) return;
       const jsonString = request.responseText;
       const data = JSON.parse(jsonString);
-      console.log(data);
       this.setState({songs: data.feed.entry});
     });
 
@@ -36,7 +35,7 @@ class SongContainer extends React.Component {
   render(){
     return (
       <div id="song-container">
-        <h2>Top 20 Songs</h2>
+        <h2>iTunes top 20</h2>
         <SongSelector songs={this.state.songs}
         onSongSelected={this.handleSongSelected}/>
         <SongDetail song={this.state.currentSong}/>
